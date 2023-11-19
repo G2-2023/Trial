@@ -40,14 +40,14 @@ data2 <- list(N=N,y=y,x=x,p=p,q=q)
 r0nom <- c("median","mean","mad","sd","low","hig","rhat1")
 
 #either loop through all files or select one (f0)
-#for(f0 in 2:length(jagsfiles)){
-#f0 <- 2
+for(f0 in 2:length(jagsfiles)){
+f0 <- 2
 fit1 <- jags.parallel(data=data2, 
                       parameters.to.save=params,
                       n.iter=10000, n.chains=3,n.thin=1,n.burnin=5000,
                       model.file=paste0("funs/miv_",jagsfiles[f0],"_noanc2a.txt"))
-#fit1
-#save output
+fit1
+save output
 saveRDS(fit1,paste0("results_",jagsfiles[f0],".rds"))
 #}
 
